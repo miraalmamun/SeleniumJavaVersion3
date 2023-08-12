@@ -10,13 +10,21 @@ public final class ExtentManager {
 
     /**
      *
-     * @return important note in V1 it was public
-     * in this version(V2) now default. Now it is only accessible within same package
-     * Here only allow to access ExtentLogger class. Outside reports package not allow
-     * to access getExtentTest() and setExtentTest(ExtentTest test). If someone want to
-     * log then have to use ExtentLogger class
+     * In version V1, the visibility of a certain element was set to "public,"
+     * allowing it to be accessed from any part of the codebase. However, in
+     * this updated version (V2), its visibility has been changed to "default."
+     * Consequently, it is now only accessible within the same package.
+     *
+     * Specifically, access to the getExtentTest() and setExtentTest(ExtentTest test)
+     * methods is restricted to within the reports package. These methods cannot be
+     * accessed from outside the reports package. To perform logging operations,
+     * one is required to use the ExtentLogger class. This design ensures controlled
+     * and encapsulated access, promoting the appropriate use of these methods and
+     * maintaining code organization
+     *  ExtentManager.getExtentTest().assignAuthor("Mir").assignCategory("Smoke").assignCategory("Regression");
      */
-     static ExtentTest getExtentTest(){
+
+      static ExtentTest getExtentTest(){
         return threadLocal.get();
     }
 
