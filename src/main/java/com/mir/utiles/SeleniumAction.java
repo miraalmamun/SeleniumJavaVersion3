@@ -4,6 +4,8 @@ import com.mir.config.ConfigsFactory;
 import com.mir.driver.DriverManager;
 import com.mir.enums.WaitType;
 import com.mir.reports.ExtentLogger;
+import com.mir.reports.ExtentManager;
+import com.mir.reports.ExtentReport;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
@@ -26,6 +28,7 @@ public final class SeleniumAction {
         WebElement element = waitUntilElementPresent(by);
         element.click();
          //ExtentLogger.pass(elementName + " is clicked successfully");
+        ExtentManager.getExtentTest().info(elementName + " is clicked successfully");
     }
 
     public static void click(WebElement element) {
@@ -47,7 +50,7 @@ public final class SeleniumAction {
     public static void sendKeys(By by, String value, String elementName) {
         WebElement element = waitUntilElementToBeVisible(by);
         element.sendKeys(value);
-        // ExtentLogger.pass(value + " is entered "+ " successfully in "+elementName);
+        ExtentManager.getExtentTest().info(value + " is entered "+ " successfully in "+elementName);
     }
 
 

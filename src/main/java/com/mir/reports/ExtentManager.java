@@ -8,11 +8,11 @@ public final class ExtentManager {
 
     private static final ThreadLocal<ExtentTest> threadLocal = new ThreadLocal<>();
 
-    static ExtentTest getExtentTest(){
+    public static ExtentTest getExtentTest(){
         return threadLocal.get();
     }
 
-    static void setExtentTest(ExtentTest test){
+    public static void setExtentTest(ExtentTest test){
         threadLocal.set(test);
 
     }
