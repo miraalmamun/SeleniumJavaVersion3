@@ -2,19 +2,26 @@ package com.mir.tests;
 
 import com.mir.pages.LoginPage;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class HomePageTest extends BaseTest {
 
-    @Test(description = "To check whether the user the title of orangehrm website homepage is displayed correctly")
-    public void titleValidationTest() {
+    @DataProvider
+    public static Object[][] getData() {
+        return new Object[][]{{"Admin", "admin123", "OrangeHRM"}};
+    }
+
+    @Test(description = "To check whether the user the title of orangehrm website homepage is displayed correctly"
+            , dataProvider = "getData")
+    public void titleValidationTest(String username, String password, String expected) {
 
         LoginPage loginPage = new LoginPage();
         String actualTitle = loginPage
-                .loginToApplication("Admin","admin123")
+                .loginToApplication(username, password)
                 .getHomePageTitle();
 
-        Assert.assertEquals(actualTitle, "OrangeHRM");
+        Assert.assertEquals(actualTitle, expected);
 
     }
 }
