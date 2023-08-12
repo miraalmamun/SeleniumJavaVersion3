@@ -1,0 +1,22 @@
+The WebDriver layer:
+The WebDriver layer is ideally located in the src/main/java folder, which
+is considered a good programming practice. To ensure its maintainability,
+it's recommended to organize this layer into three distinct classes:
+DriverFactory, DriverManager, and Driver. This modular approach promotes
+better code management.
+
+The DriverFactory class manages the configuration of various drivers such as
+Chrome, Edge, Firefox, and others.
+The DriverManager class supervises driver instances using ThreadLocal.
+ThreadLocal allows the creation of variables that are accessible exclusively
+within the same thread, the safeguarding of parallel testing.
+
+Lastly, the Driver class consists of two core methods: one for initializing
+the browser and another for closing it. This separation of roles ensures a
+clear and efficient handling of browser instances. By embracing these practices,
+your WebDriver layer becomes well-organized and simpler to maintain, leading
+to effective and robust test automation.
+
+
+
+
