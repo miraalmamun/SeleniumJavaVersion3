@@ -21,7 +21,7 @@ public final class Driver {
      * class via the DriverFactory.getDriver() method.
      */
     public static void initDriver() {
-        String browser = getConfig().browser();
+        String browser = System.getProperty("browser", getConfig().browser());
         if (getDriverThreadLocal() == null) {
             WebDriver driver = getDriver(browser);
             setDriverThreadLocal(driver);
@@ -29,6 +29,7 @@ public final class Driver {
             getDriverThreadLocal().get(ConfigsFactory.getConfig().url());
         }
     }
+
 
     public static void quitDriver() {
         if (getDriverThreadLocal() != null) {

@@ -3,12 +3,14 @@ package com.mir.pages;
 import com.mir.enums.WaitType;
 import org.openqa.selenium.By;
 
-import static com.mir.utiles.SeleniumAction.*;
+import static com.mir.utiles.SeleniumAction.click;
+import static com.mir.utiles.SeleniumAction.sendKeys;
 
 public class LoginPage {
     /**
      * //Keep all your locators and methods in one class
      */
+
     private static final By INPUT_TEXT_USERNAME = By.name("username");
     private static final By INPUT_TEXT_PASSWORD = By.name("password");
     private static final By BTN_LOGIN = By.xpath("//div[@class='orangehrm-login-slot-wrapper']");

@@ -11,7 +11,7 @@ public class HomePageTest extends BaseTest {
 
     @DataProvider
     public static Object[][] getData() {
-        return new Object[][]{{"Admin", "admin123", "OrangeHRM1"}};
+        return new Object[][]{{"Admin", "admin123", "OrangeHRM"}};
     }
    @FrameworkAnnotation(author = "Mir A Mamun")
     @Test(description = "To check whether the user the title of orangehrm website homepage is displayed correctly"
