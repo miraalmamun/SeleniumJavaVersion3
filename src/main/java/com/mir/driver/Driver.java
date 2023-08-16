@@ -22,6 +22,7 @@ public final class Driver {
      */
     public static void initDriver() {
         String browser = System.getProperty("browser", getConfig().browser());
+        //mvn clean test -Dbrowser=chrome
         if (getDriverThreadLocal() == null) {
             WebDriver driver = getDriver(browser);
             setDriverThreadLocal(driver);
